@@ -1,0 +1,28 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model List<StudentPortal.Web.Models.Entities.Users>
+
+    <h1>User List</h1>
+
+    <table>
+        <thead>
+            <tr>           
+            <th>UserName</th>           
+            </tr>
+        </thead>
+
+        <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>               
+                <td>@user.UserName</td>                
+            </tr>
+        }
+
+        </tbody>
+
+    </table>

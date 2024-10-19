@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+  sql.data:
+    image: mcr.microsoft.com/mssql/server
+  studentportal.web:
+    image: ${DOCKER_REGISTRY-}image3
+    build:
+      context: .
+      dockerfile: StudentPortal.Web/Dockerfile
+
+

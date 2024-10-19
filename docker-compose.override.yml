@@ -1,0 +1,25 @@
+version: '3.4'
+
+services:
+  sql.data:
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Admin@123
+    ports:
+      - "1400:1433"
+
+  studentportal.web:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "ConnectionStrings__StudentPortal=Server=52.179.221.201,1433;Database=StudentPortalDb;Trusted_Connection=false;MultipleActiveResultSets=true;Encrypt=false;user id=sa;password=Admin@123"
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8081
+
+    ports:
+      - "5030:8080"
+      - "5031:8081"
+    depends_on:
+      - sql.data
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro

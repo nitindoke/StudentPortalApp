@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  studentportal.web:
+    image: ${DOCKER_REGISTRY-}studentportalweb
+    build:
+      context: .
+      dockerfile: StudentPortal.Web/Dockerfile
