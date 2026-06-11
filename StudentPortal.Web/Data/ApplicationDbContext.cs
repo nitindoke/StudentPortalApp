@@ -11,5 +11,6 @@ namespace StudentPortal.Web.Data
         }
         public DbSet<Student> Students { get; set; }
         public DbSet<Users> Users { get; set; }
+        public DbSet<Course> Course { get; set; }
     }
 }
